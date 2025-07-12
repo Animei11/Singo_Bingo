@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.IO Room Test</title>
+</head>
+
+<body>
+    <h2>Socket.IO Room Example</h2>
+    <input id="roomCode" placeholder="Enter room code">
+    <button onclick="joinRoom()">Join Room</button>
+    <br><br>
+    <input id="message" placeholder="Type message">
+    <button onclick="sendMessage()">Send Message</button>
+    <ul id="messages"></ul>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        const socket = io('http://localhost:8080/'); // Change this to your Elastic Beanstalk URL
+
+        function joinRoom() {
+            const roomCode = document.getElementById('roomCode').value;
+            socket.emit('join_room', roomCode);
+        }
+
+        function sendMessage() {
+            const roomCode = document.getElementById('roomCode').value;
+            const message = document.getElementById('message').value;
+            socket.emit('send_message', { roomCode, message });
+        }
+
+        socket.on('receive_message', (data) => {
+            const li = document.createElement('li');
+            li.innerText = `${data.sender}: ${data.message}`;
+            document.getElementById('messages').appendChild(li);
+        });
+    </script>
+</body>
+
+</html>

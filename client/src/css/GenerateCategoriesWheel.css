@@ -1,0 +1,122 @@
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.wheel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 50px auto;
+}
+
+.wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #000;
+  transition: transform 3s ease-out;
+  overflow: hidden;
+}
+
+.wheel-section {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+}
+
+/* Top right section */
+.wheel-section:nth-child(1) {
+  top: 0;
+  right: 0;
+  background: #FF6B6B;
+}
+
+/* Top left section */
+.wheel-section:nth-child(2) {
+  top: 0;
+  left: 0;
+  background: #4ECDC4;
+}
+
+/* Bottom left section */
+.wheel-section:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  background: #45B7D1;
+}
+
+/* Bottom right section */
+.wheel-section:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  background: #96CEB4;
+}
+
+.wheel-section span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.spin-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.spin-button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.ticker {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid #333;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Optional: Add a small animation to the ticker when wheel stops */
+@keyframes tickerPulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.1);
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.wheel:not(.spinning)+.ticker {
+  animation: tickerPulse 0.5s ease-in-out;
+}

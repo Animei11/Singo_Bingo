@@ -1,0 +1,74 @@
+.circular-input {
+    border-radius: 18px;
+    padding: 10px;
+    margin: 10px;
+    width: 180px;
+    color: black;
+    background-color: white;
+    font-size: 20px;
+    border: 1px solid #ccc;
+}
+
+.button {
+    border-radius: 18px;
+    padding: 10px;
+    color: white;
+    background-image: linear-gradient(#da1cd8, #a610d8);
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    display: block;
+    line-height: 30px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: #4dc0b2;
+    border-radius: 20px;
+    gap: 30px;
+}
+
+.box .button {
+    border-radius: 18px;
+    padding: 5px 10px;
+    color: white;
+    background-image: linear-gradient(#da1cd8, #a610d8);
+    font-size: 16px;
+    width: 200px;
+    height: 50px;
+    display: block;
+    line-height: 40px;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.box .button:disabled {
+    background-image: linear-gradient(#a0a0a0, #808080);
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.box .button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.box .button:active:not(:disabled) {
+    transform: scale(0.95);
+    background-image: linear-gradient(#c016be, #8a0db8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

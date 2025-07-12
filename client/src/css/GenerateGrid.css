@@ -1,0 +1,130 @@
+.grid {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+    grid-template-rows: auto repeat(5, 100px);
+    gap: 5px;
+    width: fit-content;
+    margin: 0 auto;
+    background-color: #4dc0b2;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title-row {
+    grid-column: span 5;
+    /* Make the title row span all columns */
+    background-color: lightgreen;
+    /* Background color for the title row */
+    text-align: center;
+    /* Center the text */
+    font-weight: bold;
+    /* Make the title bold */
+    padding: 10px;
+    /* Add some padding */
+}
+
+.row {
+    display: contents;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.cell:hover {
+    background-color: lightcoral;
+}
+
+.cell.marked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.cell.verified {
+    cursor: not-allowed;
+    background-color: #e0e0e0;
+    opacity: 0.8;
+}
+
+.cell.verified:hover {
+    background-color: #e0e0e0;
+}
+
+.winner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.winner-image {
+    max-width: 60%;
+    max-height: 60vh;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+    animation: bounce 1s cubic-bezier(0.36, 0, 0.66, -0.56) infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

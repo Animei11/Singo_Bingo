@@ -1,0 +1,30 @@
+eb init 
+eb create int-env 
+eb deploy 
+eb terminate 
+eb health 
+
+PORT=8080 
+
+
+Commit and Push 
+1. git add .
+2. git commit -m “Comment”
+
+Create new branch 
+1. git checkout -b NEW_BRANCH_NAME
+
+Merge branch to main 
+1. git checkout main
+2. git merge master 
+3. git push origin main
+
+VSC Shortcuts 
+Command + e
+
+
+Youtube channel
+	Redlist UCgR4pXCr9fGiUvZfsnlZ2Hg
+
+
+Can't use callback on EB domain because it is not secure. Can't make secure because I don't own it 
